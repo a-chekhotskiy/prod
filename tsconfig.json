@@ -13,7 +13,9 @@
 
     
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+
+    "baseUrl": ""
   },
   "ts-node": {
     "compilerOptions": { 
