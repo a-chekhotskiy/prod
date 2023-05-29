@@ -2,7 +2,7 @@ type Modes = Record<string, boolean | string>;
 
 export const classNames = (
     className: string,
-    modes: Modes,
+    modes?: Modes,
     additional?: string[]
 ): string => {
     return [
@@ -12,4 +12,4 @@ export const classNames = (
     ].join(" ");
 };
 
-classNames("remove_btn", { hover: true, selectable: false }, ["red"]);
+// classNames("remove_btn", { hover: true, selectable: false }, ["red"]);
