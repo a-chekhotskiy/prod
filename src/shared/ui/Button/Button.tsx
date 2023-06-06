@@ -1,10 +1,9 @@
-import { Link, LinkProps } from "react-router-dom";
-import cls from "./Button.module.scss";
-import { classNames } from "helpers/classNames";
-import { ButtonHTMLAttributes, FC } from "react";
+import { classNames } from 'helpers/classNames';
+import { ButtonHTMLAttributes, FC } from 'react';
+import cls from './Button.module.scss';
 
 export enum ThemeButton {
-    CLEAR = "clear",
+    CLEAR = 'clear',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
