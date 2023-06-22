@@ -1,4 +1,4 @@
-import { classNames } from 'helpers/classNames';
+import { classNames } from 'helpers/classnames/classNames';
 import cls from './Loader.module.scss';
 
 export const Loader: React.FC = () => {

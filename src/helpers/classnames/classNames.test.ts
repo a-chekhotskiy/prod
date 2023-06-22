@@ -1,4 +1,4 @@
-import { classNames } from 'helpers/classNames';
+import { classNames } from 'helpers/classnames/classNames';
 
 describe('classnames', () => {
   test('with classname only', () => {
