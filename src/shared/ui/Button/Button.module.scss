@@ -5,4 +5,12 @@
     outline: none;
     background: none;
     text-decoration: none;
+    color: var(--secondary-color);
+}
+
+.outline {
+    background: none;
+    padding: 10px 15px;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
 }

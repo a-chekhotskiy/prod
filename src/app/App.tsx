@@ -9,11 +9,12 @@ import './styles/index.scss';
 
 export default function App() {
   const { theme } = useTheme();
+  console.log(theme, theme);
 
   return (
     <div className={`app ${theme}`}>
       <Suspense fallback="">
-        <ThemeSwitcher className="" />
+        <ThemeSwitcher />
         <LangSwitcher />
         <Navbar />
         <div className="appContainer">
