@@ -1,34 +1,40 @@
 name: linting, testing, building
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
 jobs:
-  pipeline:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
+    pipeline:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [16.x]
 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
 
-      - name: install node modules
-        run: yarn install
+            - name: install node modules
+              run: yarn install
 
-      - name: build prod
-        run: yarn build:prod
+            - name: build prod
+              run: yarn build:prod
 
-      - name: linting scss
-        run: yarn lint:scss
+            - name: linting scss
+              run: yarn lint:scss
 
-      - name: linting ts
-        run: yarn lint:ts
+            - name: linting ts
+              run: yarn lint:ts
 
-      - name: unit testing
-        run: yarn test:unit
+            - name: unit testing
+              run: yarn test:unit
+
+            - name: storybook build
+              run: yarn storybook:build
+
+            - name: screenshot testing
+              run: yarn test:ui:ci
