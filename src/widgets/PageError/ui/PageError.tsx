@@ -1,16 +1,18 @@
 import { useTranslation } from 'react-i18next';
 
 export const PageError: React.FC = () => {
-  const { t: translate } = useTranslation('pageError');
+    const { t: translate } = useTranslation('pageError');
 
-  const onReload = () => {
-    window.location.reload();
-  };
+    const onReload = () => {
+        window.location.reload();
+    };
 
-  return (
-    <>
-      <div>{translate('errorText')}</div>
-      <button onClick={onReload}>{translate('errorButton')}</button>
-    </>
-  );
+    return (
+        <>
+            <div>{translate('errorText')}</div>
+            <button type="button" onClick={onReload}>
+                {translate('errorButton')}
+            </button>
+        </>
+    );
 };

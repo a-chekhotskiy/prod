@@ -4,13 +4,13 @@ import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader/ui/PageLoader';
 
 export const AppRouter = () => (
-  <Routes>
-    {Object.values(routeConfig).map(({ path, element }) => (
-      <Route
-        key={path}
-        element={<Suspense fallback={<PageLoader />}>{element}</Suspense>}
-        path={path}
-      />
-    ))}
-  </Routes>
+    <Routes>
+        {Object.values(routeConfig).map(({ path, element }) => (
+            <Route
+                key={path}
+                element={<Suspense fallback={<PageLoader />}>{element}</Suspense>}
+                path={path}
+            />
+        ))}
+    </Routes>
 );

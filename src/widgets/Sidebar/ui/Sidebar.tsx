@@ -4,22 +4,20 @@ import { useTranslation } from 'react-i18next';
 import cls from './Sidebar.module.scss';
 
 interface SibebarProps {
-  className?: string;
+    className?: string;
 }
 
 export const Sidebar: React.FC<SibebarProps> = ({ className, ...otherProps }) => {
-  const [collapsed, setCollapsed] = useState<boolean>(false);
-  const { t } = useTranslation('sidebar');
+    const [collapsed, setCollapsed] = useState<boolean>(false);
+    const { t } = useTranslation('sidebar');
 
-  const onToggle = () => setCollapsed((prevState) => !prevState);
+    const onToggle = () => setCollapsed((prevState) => !prevState);
 
-  return (
-    <div
-      className={classNames(cls.sidebar, { [cls.opened]: collapsed }, [className])}
-      {...otherProps}>
-      <button data-testid="toggleButton" onClick={onToggle}>
-        {t('hide sidebar')}
-      </button>
-    </div>
-  );
+    return (
+        <div className={classNames(cls.sidebar, { [cls.opened]: collapsed }, [className])} {...otherProps}>
+            <button type="button" data-testid="toggleButton" onClick={onToggle}>
+                {t('hide sidebar')}
+            </button>
+        </div>
+    );
 };

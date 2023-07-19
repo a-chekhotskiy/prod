@@ -1,8 +1,8 @@
-import { classNames } from 'helpers/classnames/classNames';
-import cls from './NotFoundPage.module.scss';
+// import { classNames } from 'helpers/classnames/classNames';
 import { useTranslation } from 'react-i18next';
+// import cls from './NotFoundPage.module.scss';
 
 export const NotFoundPage: React.FC = () => {
-  const { t: translate } = useTranslation('notFound');
-  return <div className={classNames(cls.notFoundPage)}>{translate('notFound')}</div>;
+    const { t: translate } = useTranslation('notFound');
+    return <div>{translate('notFound')}</div>;
 };

@@ -8,22 +8,22 @@ import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
 import './styles/index.scss';
 
 export default function App() {
-  const { theme } = useTheme();
-  console.log(theme, theme);
+    const { theme } = useTheme();
+    console.log(theme, theme);
 
-  return (
-    <div className={`app ${theme}`}>
-      <Suspense fallback="">
-        <ThemeSwitcher />
-        <LangSwitcher />
-        <Navbar />
-        <div className="appContainer">
-          <Sidebar />
-          <div className="pageContainer">
-            <AppRouter />
-          </div>
+    return (
+        <div className={`app ${theme}`}>
+            <Suspense fallback="">
+                <ThemeSwitcher />
+                <LangSwitcher />
+                <Navbar />
+                <div className="appContainer">
+                    <Sidebar />
+                    <div className="pageContainer">
+                        <AppRouter />
+                    </div>
+                </div>
+            </Suspense>
         </div>
-      </Suspense>
-    </div>
-  );
+    );
 }

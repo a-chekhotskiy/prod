@@ -9,14 +9,14 @@ import './shared/config/i18n/i18n';
 import { Suspense } from 'react';
 
 render(
-  <BrowserRouter>
-    <Suspense fallback="">
-      <ErrorBoundary fallback={<PageError />}>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
-      </ErrorBoundary>
-    </Suspense>
-  </BrowserRouter>,
-  document.getElementById('root'),
+    <BrowserRouter>
+        <Suspense fallback="">
+            <ErrorBoundary fallback={<PageError />}>
+                <ThemeProvider>
+                    <App />
+                </ThemeProvider>
+            </ErrorBoundary>
+        </Suspense>
+    </BrowserRouter>,
+    document.getElementById('root'),
 );

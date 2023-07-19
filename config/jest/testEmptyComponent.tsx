@@ -1,5 +1,3 @@
-const testEmptyComponent: React.FC = () => {
-  return <div></div>;
-};
+const testEmptyComponent: React.FC = () => <div />;
 
 export default testEmptyComponent;
