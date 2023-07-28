@@ -1,9 +1,9 @@
 import { classNames } from 'helpers/classnames/classNames';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Modal } from 'shared/ui/Modal';
 import { Button, ThemeButton } from 'shared/ui/Button';
 import { Counter } from 'entities/Counter';
+import { AuthModal } from 'features/AuthForm';
 import cls from './Sidebar.module.scss';
 
 interface SibebarProps {
@@ -34,10 +34,8 @@ export const Sidebar: React.FC<SibebarProps> = ({ className, ...otherProps }) =>
             <Button onClick={onModalOpen} theme={ThemeButton.OUTLINE}>
                 {t('modal button')}
             </Button>
-            <Modal open={open} onClosed={onModalClosed}>
-                {t('modal text')}
-            </Modal>
-            <Counter />
+            <AuthModal open={open} onClosed={onModalClosed} />
+            {/* <Counter /> */}
         </div>
     );
 };
