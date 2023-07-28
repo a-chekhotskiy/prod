@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal } from 'shared/ui/Modal';
 import { Button, ThemeButton } from 'shared/ui/Button';
-import cls from './Sidebar.module.scss';
 import { Counter } from 'entities/Counter';
+import cls from './Sidebar.module.scss';
 
 interface SibebarProps {
     className?: string;
