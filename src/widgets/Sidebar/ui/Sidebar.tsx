@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Modal } from 'shared/ui/Modal';
 import { Button, ThemeButton } from 'shared/ui/Button';
 import cls from './Sidebar.module.scss';
+import { Counter } from 'entities/Counter';
 
 interface SibebarProps {
     className?: string;
@@ -36,6 +37,7 @@ export const Sidebar: React.FC<SibebarProps> = ({ className, ...otherProps }) =>
             <Modal open={open} onClosed={onModalClosed}>
                 {t('modal text')}
             </Modal>
+            <Counter />
         </div>
     );
 };
