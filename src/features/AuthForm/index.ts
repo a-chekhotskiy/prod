@@ -1,6 +1,7 @@
-// import { userReducer } from './model/slice/userSlice';
+import { loginReducer } from './model/slice/loginSlice';
 import { AuthForm } from './ui/AuthForm/AuthForm';
 import { AuthModal } from './ui/AuthModal/AuthModal';
-// import { UserSchema } from './model/types/UserSchema';
+import { LoginSchema } from './model/types/LoginSchema';
+import { loginThunk } from './model/thunks/loginThunk/loginThunk';
 
-export { AuthForm, AuthModal };
+export { AuthForm, AuthModal, LoginSchema, loginReducer, loginThunk };

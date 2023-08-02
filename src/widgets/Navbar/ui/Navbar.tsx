@@ -8,16 +8,16 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ className }) => {
-    const { t: translate } = useTranslation('navbar');
+    const { t: translate } = useTranslation();
 
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
             <div className={classNames(cls.links, {}, [])}>
-                <AppLink theme={AppLinkTheme.PRIMARY} to="/" className={classNames(cls.mainLink, {}, [])}>
-                    {translate('main')}
+                <AppLink theme={AppLinkTheme.PRIMARY} to="/">
+                    {translate('main link')}
                 </AppLink>
-                <AppLink theme={AppLinkTheme.PRIMARY} to="/about" className={classNames(cls.mainLink, {}, [])}>
-                    {translate('about')}
+                <AppLink theme={AppLinkTheme.PRIMARY} to="/about">
+                    {translate('about link')}
                 </AppLink>
             </div>
         </div>

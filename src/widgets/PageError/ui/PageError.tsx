@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 export const PageError: React.FC = () => {
-    const { t: translate } = useTranslation('pageError');
+    const { t: translate } = useTranslation();
 
     const onReload = () => {
         window.location.reload();

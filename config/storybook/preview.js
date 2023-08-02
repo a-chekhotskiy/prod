@@ -1,19 +1,18 @@
 import { addDecorator } from '@storybook/react';
-import { styleDecorator } from '../../src/shared/config/storybook/styleDecorator';
-import { themeDecorator } from '../../src/shared/config/storybook/themeDecorator';
-import { routerDecorator } from '../../src/shared/config/storybook/routerDecorator';
+import { styleDecorator, themeDecorator, routerDecorator, storeDecorator } from '../../src/shared/config/storybook';
 import { Theme } from '../../src/app/providers/ThemeProvider';
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
+    actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+        matchers: {
+            color: /(background|color)$/i,
+            date: /Date$/,
+        },
     },
-  },
 };
 
 addDecorator(styleDecorator);
 addDecorator(themeDecorator(Theme.DARK));
 addDecorator(routerDecorator);
+addDecorator(storeDecorator());

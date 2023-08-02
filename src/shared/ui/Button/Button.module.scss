@@ -1,3 +1,9 @@
+.btn {
+    &:disabled {
+        opacity: 0.5;
+    }
+}
+
 .clear {
     margin: 0;
     padding: 0;

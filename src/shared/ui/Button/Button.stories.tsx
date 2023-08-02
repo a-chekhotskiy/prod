@@ -19,6 +19,12 @@ Primary.args = {
     children: 'Text',
 };
 
+export const PrimaryDisabled = Template.bind({});
+PrimaryDisabled.args = {
+    children: 'Text',
+    disabled: true,
+};
+
 export const Clear = Template.bind({});
 Clear.args = {
     children: 'Text',

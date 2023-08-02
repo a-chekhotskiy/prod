@@ -1,4 +1,17 @@
 {
     "test": "test text",
-    "change language": "change language"
+    "change language": "change language",
+    "sidebar": "sidebar",
+    "hide sidebar": "hide sidebar",
+    "notFound": "Not found",
+    "errorText": "An error occured",
+    "errorButton": "Reload the page",
+    "main": "main text",
+    "about": "about a website",
+    "main link": "main",
+    "about link": "about",
+    "login form": "Login form",
+    "login": "Login",
+    "enter your username": "Enter your username",
+    "enter your password": "Enter your password"
 }

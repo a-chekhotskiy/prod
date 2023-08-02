@@ -1,4 +1,17 @@
 {
     "test": "тестовый текст",
-    "change language": "Изменить язык"
+    "change language": "Изменить язык",
+    "sidebar": "сайдбар",
+    "hide sidebar": "спрятать сайдбар",
+    "notFound": "Не найдено",
+    "errorText": "Произошла ошибка",
+    "errorButton": "Перезагрузить страницу",
+    "main": "главный текст",
+    "about": "о сайте",
+    "main link": "главная",
+    "about link": "о сайте",
+    "login form": "Форма входа",
+    "login": "Войти",
+    "enter your username": "Введите ваш никнейм",
+    "enter your password": "Введите ваш пароль"
 }
