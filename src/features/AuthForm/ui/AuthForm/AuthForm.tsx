@@ -8,8 +8,8 @@ import { Text } from 'shared/ui/Text';
 import { Input } from 'shared/ui/Input';
 import { TextTheme } from 'shared/ui/Text/Text';
 
-import { StateSchema } from 'app/providers/StoreProvider/StateSchema';
 import { useReducerLoader } from 'shared/lib/hooks/useReducerLoader';
+import { getLoginError, getLoginLoading, getLoginPassword, getLoginUsername } from 'features/AuthForm/model/selectors';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginThunk } from '../../model/thunks/loginThunk/loginThunk';
 
@@ -38,11 +38,10 @@ const AuthForm: React.FC<AuthFormProps> = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    // const { username, password, error, isLoading } = useSelector(getLoginState);
-    const username = useSelector((state: StateSchema) => state?.login?.username ?? '');
-    const password = useSelector((state: StateSchema) => state?.login?.password ?? '');
-    const error = useSelector((state: StateSchema) => state?.login?.error ?? '');
-    const isLoading = useSelector((state: StateSchema) => state?.login?.isLoading ?? false);
+    const username = useSelector(getLoginUsername);
+    const password = useSelector(getLoginPassword);
+    const error = useSelector(getLoginError);
+    const isLoading = useSelector(getLoginLoading);
 
     const onUsernameChange = useCallback(
         (val: string) => {

@@ -13,8 +13,6 @@ export const userSlice = createSlice({
             state.authData = action.payload;
         },
         initAuthData(state) {
-            console.log('RESSSSSSS');
-
             const user = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
             console.log(JSON.parse(user));
 
