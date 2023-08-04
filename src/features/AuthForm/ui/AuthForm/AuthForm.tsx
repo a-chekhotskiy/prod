@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -8,23 +8,41 @@ import { Text } from 'shared/ui/Text';
 import { Input } from 'shared/ui/Input';
 import { TextTheme } from 'shared/ui/Text/Text';
 
-import { loginActions } from 'features/AuthForm/model/slice/loginSlice';
-
-import { getLoginState } from '../../model/selectors/getLoginState';
+import { StateSchema } from 'app/providers/StoreProvider/StateSchema';
+import { useReducerLoader } from 'shared/lib/hooks/useReducerLoader';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginThunk } from '../../model/thunks/loginThunk/loginThunk';
 
 import cls from './AuthForm.module.scss';
 
-interface AuthFormProps {
+export interface AuthFormProps {
     className?: string;
 }
 
-export const AuthForm: React.FC<AuthFormProps> = (props) => {
+const reducersList = {
+    login: loginReducer,
+};
+
+const AuthForm: React.FC<AuthFormProps> = (props) => {
     const { className } = props;
     const { t } = useTranslation();
     const dispatch = useDispatch();
 
-    const { username, password, error, isLoading } = useSelector(getLoginState);
+    const { addReducer, removeReducer } = useReducerLoader(reducersList);
+
+    useEffect(() => {
+        addReducer();
+        return () => {
+            removeReducer();
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    // const { username, password, error, isLoading } = useSelector(getLoginState);
+    const username = useSelector((state: StateSchema) => state?.login?.username ?? '');
+    const password = useSelector((state: StateSchema) => state?.login?.password ?? '');
+    const error = useSelector((state: StateSchema) => state?.login?.error ?? '');
+    const isLoading = useSelector((state: StateSchema) => state?.login?.isLoading ?? false);
 
     const onUsernameChange = useCallback(
         (val: string) => {
@@ -56,3 +74,5 @@ export const AuthForm: React.FC<AuthFormProps> = (props) => {
         </div>
     );
 };
+
+export default AuthForm;

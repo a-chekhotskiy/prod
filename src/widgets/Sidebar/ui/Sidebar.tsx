@@ -2,10 +2,10 @@ import { classNames } from 'helpers/classnames/classNames';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ThemeButton } from 'shared/ui/Button';
-import { AuthModal } from 'features/AuthForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthState } from 'entities/User/model/selectors/getUserState';
 import { userActions } from 'entities/User/model/slice/userSlice';
+import { AuthModal } from 'features/AuthForm';
 import cls from './Sidebar.module.scss';
 
 interface SibebarProps {
@@ -55,7 +55,7 @@ export const Sidebar: React.FC<SibebarProps> = ({ className, ...otherProps }) =>
                 </Button>
             )}
 
-            <AuthModal open={open} onClosed={onModalClosed} />
+            {open && <AuthModal open={open} onClosed={onModalClosed} />}
         </div>
     );
 };

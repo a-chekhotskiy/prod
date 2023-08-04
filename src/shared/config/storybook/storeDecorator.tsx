@@ -1,12 +1,15 @@
-import { Provider } from 'react-redux';
-import { createReduxStore } from 'app/providers/StoreProvider';
+import { StoreProvider } from 'app/providers/StoreProvider';
 import { StateSchema } from 'app/providers/StoreProvider/StateSchema';
-import { LoginSchema } from 'features/AuthForm';
+import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
+import { loginReducer } from 'features/AuthForm/model/slice/loginSlice';
 
-export const storeDecorator = (state: LoginSchema) => (story: () => any) => {
-    const store = createReduxStore({
-        login: state,
-    } as StateSchema);
-
-    return <Provider store={store}>{story()}</Provider>;
+const defAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
+    login: loginReducer,
 };
+
+export const storeDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>) => (story: () => any) =>
+    (
+        <StoreProvider initState={state} asyncReducers={{ ...defAsyncReducers, ...asyncReducers }}>
+            {story()}
+        </StoreProvider>
+    );

@@ -50,6 +50,7 @@ module.exports = {
         'object-curly-newline': 0,
         'no-param-reassign': 'off',
         'function-paren-newline': 1,
+        'implicit-arrow-linebreak': ['off', 'beside'],
     },
     globals: {
         __IS_DEV__: true,
