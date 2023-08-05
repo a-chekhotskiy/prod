@@ -10,8 +10,8 @@ import { Suspense } from 'react';
 import { StoreProvider } from 'app/providers/StoreProvider';
 
 render(
-    <StoreProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+        <StoreProvider>
             <Suspense fallback="">
                 <ErrorBoundary fallback={<PageError />}>
                     <ThemeProvider>
@@ -19,7 +19,7 @@ render(
                     </ThemeProvider>
                 </ErrorBoundary>
             </Suspense>
-        </BrowserRouter>
-    </StoreProvider>,
+        </StoreProvider>
+    </BrowserRouter>,
     document.getElementById('root'),
 );

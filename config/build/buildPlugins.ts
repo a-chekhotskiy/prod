@@ -5,10 +5,10 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { BuildOptions } from './types/config';
 
-export function buildPlugins(options: BuildOptions, isDev: boolean): webpack.WebpackPluginInstance[] {
+export function buildPlugins({ path, isDev, apiUrl }: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [
         new HTMLWebpackPlugin({
-            template: options.path.html,
+            template: path.html,
         }),
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({
@@ -17,6 +17,7 @@ export function buildPlugins(options: BuildOptions, isDev: boolean): webpack.Web
         }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
         }),
     ];
 

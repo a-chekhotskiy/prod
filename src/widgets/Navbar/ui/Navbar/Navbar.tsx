@@ -11,7 +11,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => (
     <div className={classNames(cls.navbar, {}, [className])}>
         <div className={classNames(cls.links, {}, [])}>
             {navbarItemsList.map((item) => (
-                <NavbarItem path={item.path} text={item.text} />
+                <NavbarItem key={item.path} path={item.path} text={item.text} />
             ))}
         </div>
     </div>

@@ -1,5 +1,5 @@
 import { StoreProvider } from './ui/StoreProvider';
 import { createReduxStore } from './store';
-import { StoreWithManager } from './StateSchema';
+import { StoreWithManager, ThunkConfig } from './StateSchema';
 
-export { StoreProvider, createReduxStore, StoreWithManager };
+export { StoreProvider, createReduxStore, StoreWithManager, ThunkConfig };

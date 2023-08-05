@@ -1,4 +1,4 @@
-import webpack, { RuleSetRule } from 'webpack';
+import webpack from 'webpack';
 import path from 'path';
 import { BuildPath } from '../build/types/config';
 import { buildCSSLoader } from '../build/loaders/buidCSSLoader';
@@ -31,7 +31,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
     config.plugins?.push(
         new webpack.DefinePlugin({
-            __IS_DEV__: true,
+            __IS_DEV__: JSON.stringify(true),
+            __API__: JSON.stringify(''),
         }),
     );
 
