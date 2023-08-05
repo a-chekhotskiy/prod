@@ -4,8 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "create:component": "node PageFactory.js ",
         "dev": "webpack serve --env port=3000",
-        "start:dev:server": "node ./json-server/index.js",
+        "dev:server": "node ./json-server/index.js",
         "build:prod": "webpack --env mode=production",
         "build:dev": "webpack --env mode=development",
         "lint:ts": "eslint \"**/*.{ts,tsx}\"",
