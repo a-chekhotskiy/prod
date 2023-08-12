@@ -16,10 +16,10 @@ export function componentRender(component: ReactNode, options: componentRenderOp
     const { route = '/', initialState } = options;
 
     return render(
-        <StoreProvider initState={initialState}>
-            <MemoryRouter initialEntries={[route]}>
+        <MemoryRouter initialEntries={[route]}>
+            <StoreProvider initState={initialState}>
                 <I18nextProvider i18n={i18nTest}>{component}</I18nextProvider>
-            </MemoryRouter>
-        </StoreProvider>,
+            </StoreProvider>
+        </MemoryRouter>,
     );
 }

@@ -1,3 +1,4 @@
+import { ProfileCard } from 'entities/Profile';
 import { profileReducer } from 'entities/Profile/model/slice/profileSlice';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -16,5 +17,10 @@ export default function ProfilePage() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    return <div>{t('Profile')}</div>;
+    return (
+        <div>
+            {t('Profile')}
+            <ProfileCard />
+        </div>
+    );
 }
