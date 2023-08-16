@@ -62,7 +62,7 @@ const AuthForm: React.FC<AuthFormProps> = (props) => {
     }, [dispatch, username, password]);
 
     return (
-        <div className={classNames(cls.authForm, {}, [className])}>
+        <div className={classNames(cls.authForm)}>
             <Text title={t('login form')} />
             {error && <Text text={error} theme={TextTheme.ERROR} />}
             <Input type="text" className={cls.input} placeholder={t('enter your username')} onInputchange={onUsernameChange} value={username} />

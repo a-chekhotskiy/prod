@@ -22,15 +22,15 @@ describe('loginThunk.test', () => {
         expect(result.payload).toEqual(userValue);
     });
 
-    // test('error login', async () => {
-    //     const reason = { error: 'err' };
-    //     mockedAxios.post.mockReturnValue(Promise.reject(reason.error));
-    //     const thunk = new TestAsyncThunk(loginThunk);
-    //     const result = await thunk.callThunk({ username: '123', password: '123' });
+    test('error login', async () => {
+        const reason = { error: 'err' };
+        mockedAxios.post.mockReturnValue(Promise.reject(reason.error));
+        const thunk = new TestAsyncThunk(loginThunk);
+        const result = await thunk.callThunk({ username: '123', password: '123' });
 
-    //     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-    //     expect(mockedAxios.post).toHaveBeenCalled();
-    //     expect(result.meta.requestStatus).toBe('rejected');
-    //     expect(result.payload).toBe(undefined);
-    // });
+        expect(thunk.dispatch).toHaveBeenCalledTimes(2);
+        expect(mockedAxios.post).toHaveBeenCalled();
+        expect(result.meta.requestStatus).toBe('rejected');
+        expect(result.payload).toBe(undefined);
+    });
 });

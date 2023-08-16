@@ -3,10 +3,10 @@ import { classNames } from 'helpers/classnames';
 import cls from './Input.module.scss';
 
 interface InputProps {
+    value: string;
+    onInputchange: (val: string) => void;
     className?: string;
     type?: string;
-    value?: string;
-    onInputchange?: (val: string) => void;
     placeholder?: string;
 }
 

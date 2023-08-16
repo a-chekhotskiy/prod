@@ -7,6 +7,8 @@ describe('getLoginPassword.test', () => {
         const state: DeepPartial<StateSchema> = {
             login: {
                 password: 'error example',
+                isLoading: false,
+                username: 'user',
             },
         };
         expect(getLoginPassword(state as StateSchema)).toEqual('error example');

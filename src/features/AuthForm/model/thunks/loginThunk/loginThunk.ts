@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
+import axios from 'axios';
 
 import { userActions } from 'entities/User/model/slice/userSlice';
 import { User } from 'entities/User/model/types/UserSchema';
@@ -15,6 +16,10 @@ export const loginThunk = createAsyncThunk<User, LoginProps, ThunkConfig<string>
     try {
         const response = await extra.api.post<User>('/login', authData);
 
+        if (!response.data) {
+            throw new Error();
+        }
+
         // simulating auth token storage
         localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
 
@@ -25,6 +30,10 @@ export const loginThunk = createAsyncThunk<User, LoginProps, ThunkConfig<string>
 
         return response.data;
     } catch (err) {
-        return rejectWithValue(err.response.data.message);
+        if (axios.isAxiosError(err)) {
+            return rejectWithValue(err.response?.data.message);
+        }
+
+        return rejectWithValue((err as Error).message);
     }
 });
