@@ -2,6 +2,7 @@ import { ProfileCard } from 'entities/Profile';
 import { profileReducer } from 'entities/Profile/model/slice/profileSlice';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { useReducerLoader } from 'shared/lib/hooks/useReducerLoader';
 
 const reducersList = {
@@ -11,6 +12,8 @@ const reducersList = {
 export default function ProfilePage() {
     const { t } = useTranslation();
     const { addReducer } = useReducerLoader(reducersList);
+    // TODO ALEX start from this next time
+    // const data = useSelector();
 
     useEffect(() => {
         addReducer();
@@ -20,7 +23,7 @@ export default function ProfilePage() {
     return (
         <div>
             {t('Profile')}
-            <ProfileCard />
+            {/* <ProfileCard data={} /> */}
         </div>
     );
 }

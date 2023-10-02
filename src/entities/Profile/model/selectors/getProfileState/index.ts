@@ -1,3 +1,3 @@
-import { getUserAuthState } from './getProfileState';
+import { getProfileState } from './getProfileState';
 
-export { getUserAuthState };
+export { getProfileState };
