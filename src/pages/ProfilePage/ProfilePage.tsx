@@ -1,9 +1,13 @@
-import { ProfileCard } from 'entities/Profile';
+import { ProfileCard, getProfileData } from 'entities/Profile';
 import { profileReducer } from 'entities/Profile/model/slice/profileSlice';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useReducerLoader } from 'shared/lib/hooks/useReducerLoader';
+import { EditableProfileCard } from 'features/EditableProfileCard/EditableProfileCard';
+import { fetchProfileData } from 'entities/Profile/model/services/fetchProfileData/fetchProfileData';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { ProfilePageHeader } from './ui/ProfilePageHeader';
 
 const reducersList = {
     profile: profileReducer,
@@ -11,19 +15,20 @@ const reducersList = {
 
 export default function ProfilePage() {
     const { t } = useTranslation();
-    const { addReducer } = useReducerLoader(reducersList);
-    // TODO ALEX start from this next time
-    // const data = useSelector();
+    const data = useSelector(getProfileData);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        addReducer();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        dispatch(fetchProfileData());
+    }, [dispatch]);
+
+    console.log(data);
 
     return (
         <div>
             {t('Profile')}
-            {/* <ProfileCard data={} /> */}
+            <ProfilePageHeader />
+            <EditableProfileCard />
         </div>
     );
 }

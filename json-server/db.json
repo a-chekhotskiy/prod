@@ -1,51 +1,51 @@
 {
-    "posts": [
-        {
-            "id": 1,
-            "title": "json-server",
-            "userId": 1
-        },
-        {
-            "id": 2,
-            "title": "json-server",
-            "userId": 2
-        },
-        {
-            "id": 3,
-            "title": "title test",
-            "userId": 2
-        },
-        {
-            "id": 4,
-            "title": "json-server",
-            "userId": 2
-        },
-        {
-            "id": 5,
-            "title": "new titte",
-            "userId": 3
-        }
-    ],
-    "comments": [
-        {
-            "id": 1,
-            "body": "some comment",
-            "postId": 1
-        }
-    ],
-    "users": [
-        {
-            "id": 1,
-            "username": "admin",
-            "password": "123"
-        }
-    ],
-    "profile": {
-        "firstname": "Alex",
-        "lastname": "Alex",
-        "age": 30,
-        "gender": "male",
-        "country": "Czech Republic",
-        "avatar": "https://sun9-36.userapi.com/impg/K_T3NW2WeStTgNameyfvund_IgOq_Atumo9rog/jSiPcmIK-3s.jpg?size=1024x1280&quality=95&sign=57bf11e0b89becdcc1746f129226ed9e&type=album"
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "json-server",
+      "userId": 2
+    },
+    {
+      "id": 3,
+      "title": "title test",
+      "userId": 2
+    },
+    {
+      "id": 4,
+      "title": "json-server",
+      "userId": 2
+    },
+    {
+      "id": 5,
+      "title": "new titte",
+      "userId": 3
     }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "firstname": "bfff",
+    "lastname": "Alex",
+    "age": 30,
+    "gender": "male",
+    "country": "Czech Republic",
+    "avatar": "https://sun9-36.userapi.com/impg/K_T3NW2WeStTgNameyfvund_IgOq_Atumo9rog/jSiPcmIK-3s.jpg?size=1024x1280&quality=95&sign=57bf11e0b89becdcc1746f129226ed9e&type=album"
+  }
 }

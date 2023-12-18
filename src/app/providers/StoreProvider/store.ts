@@ -3,6 +3,7 @@ import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { apiInstance } from 'shared/api/api';
 import { NavigateOptions, To } from 'react-router-dom';
+import { profileReducer } from 'entities/Profile';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
@@ -17,10 +18,10 @@ export function createReduxStore(
         user: userReducer,
     };
 
-    const reduceManager = createReducerManager(rootReducer);
+    const reducerManager = createReducerManager(rootReducer);
 
     const store = configureStore({
-        reducer: reduceManager.reduce as Reducer<CombinedState<StateSchema>>,
+        reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initState,
         middleware: (getDefaultMiddleware) =>
@@ -35,7 +36,9 @@ export function createReduxStore(
     });
 
     // @ts-ignore
-    store.reduceManager = reduceManager;
+    store.reducerManager = reducerManager;
 
     return store;
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

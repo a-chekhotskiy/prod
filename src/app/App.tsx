@@ -8,10 +8,11 @@ import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
 import './styles/index.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { userActions, getUserAuthState } from 'entities/User';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 export default function App() {
     const { theme } = useTheme();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const userAuthData = useSelector(getUserAuthState);
 
     useEffect(() => {
@@ -19,6 +20,8 @@ export default function App() {
             dispatch(userActions.initAuthData());
         }
     }, [dispatch, userAuthData]);
+
+    console.log(userAuthData);
 
     return (
         <div className={`app ${theme}`}>
