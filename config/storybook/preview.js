@@ -15,4 +15,3 @@ export const parameters = {
 addDecorator(styleDecorator);
 addDecorator(themeDecorator(Theme.DARK));
 addDecorator(routerDecorator);
-addDecorator(storeDecorator());

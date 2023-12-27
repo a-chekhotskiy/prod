@@ -3,6 +3,8 @@ import { Profile, ValidateProfileError } from 'entities/Profile/model/types/Prof
 export const validateProfileData = (profile?: Profile) => {
     const errors: ValidateProfileError[] = [];
 
+    console.log(profile);
+
     if (!profile) {
         return [ValidateProfileError.NO_DATA];
     }
@@ -20,6 +22,8 @@ export const validateProfileData = (profile?: Profile) => {
     if (!country) {
         errors.push(ValidateProfileError.INCORRECT_COUNTRY);
     }
+
+    console.log(errors);
 
     return errors;
 };

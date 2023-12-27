@@ -8,6 +8,7 @@ import { Profile } from 'entities/Profile/model/types/ProfileSchema';
 import { COUNTRY } from 'shared/constants/types';
 import { Loader } from 'shared/ui/Loader';
 import { TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import { Avatar } from 'shared/ui/Avatar';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -16,14 +17,28 @@ interface ProfileCardProps {
     isLoading?: boolean;
     error?: string;
     readonly?: boolean;
-    onChangeFirstName: (value?: string) => void;
-    onChangeLastName: (value?: string) => void;
-    onChangeAge: (value?: string) => void;
-    onChangeCountry: (value?: string) => void;
+    onChangeFirstName?: (value?: string) => void;
+    onChangeLastName?: (value?: string) => void;
+    onChangeAge?: (value?: string) => void;
+    onChangeCountry?: (value?: string) => void;
+    onChangeUsername?: (value?: string) => void;
+    onChangeAvatar?: (value?: string) => void;
 }
 
 export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
-    const { className, data, isLoading, error, readonly, onChangeFirstName, onChangeLastName, onChangeAge, onChangeCountry } = props;
+    const {
+        className,
+        data,
+        isLoading,
+        error,
+        readonly,
+        onChangeFirstName,
+        onChangeLastName,
+        onChangeAge,
+        onChangeCountry,
+        onChangeUsername,
+        onChangeAvatar,
+    } = props;
 
     const { t: translate } = useTranslation();
 
@@ -37,7 +52,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
 
     if (error) {
         return (
-            <div className={classNames(cls.profileCard, { [cls.loading]: true }, [className])}>
+            <div className={classNames(cls.profileCard, {}, [className, cls.error])}>
                 <Text title={translate('Error occured')} text={translate('Error occured')} theme={TextTheme.ERROR} align={TextAlign.CENTER} />
             </div>
         );
@@ -46,7 +61,21 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
     return (
         <div className={classNames(cls.profileCard, {}, [])}>
             <div className={cls.profileData}>
-                <div className={classNames(cls.avatar, {}, [className])} style={{ backgroundImage: `url(${data?.avatar})` }} />
+                <Avatar url={data?.avatar} />
+                <Input
+                    value={data?.username}
+                    placeholder={translate('Your username')}
+                    className={cls.input}
+                    onInputchange={onChangeUsername}
+                    readonly={readonly}
+                />
+                <Input
+                    value={data?.avatar}
+                    placeholder={translate('Paste an avatar url')}
+                    className={cls.input}
+                    onInputchange={onChangeAvatar}
+                    readonly={readonly}
+                />
                 <Input
                     value={data?.firstname}
                     placeholder={translate('Your first name')}

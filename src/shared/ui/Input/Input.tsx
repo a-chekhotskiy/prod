@@ -4,7 +4,7 @@ import cls from './Input.module.scss';
 
 interface InputProps {
     value?: string | number;
-    onInputchange: (val: string) => void;
+    onInputchange?: (val: string) => void;
     className?: string;
     type?: string;
     placeholder?: string;
@@ -12,7 +12,7 @@ interface InputProps {
 }
 
 export const Input: React.FC<InputProps> = (props) => {
-    const { className, type, value, onInputchange, placeholder, readonly, ...otherProps } = props;
+    const { className, type, value, onInputchange = () => {}, placeholder, readonly, ...otherProps } = props;
 
     const onChange = (val: ChangeEvent<HTMLInputElement>) => {
         onInputchange(val.target.value);
